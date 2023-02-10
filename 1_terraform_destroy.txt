@@ -1,0 +1,398 @@
+rik@ubuntu-wsl:~/terra_learn/azure/linux-vm-learn-terraform$ terraform destroy
+random_pet.rg_name: Refreshing state... [id=rg-charming-dory]
+tls_private_key.example_ssh: Refreshing state... [id=e55e8ffbf6a73d24ef109c25f04d93f3bd4fddb5]
+azurerm_resource_group.rg: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory]
+azurerm_virtual_network.my_terraform_network: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet]
+random_id.random_id: Refreshing state... [id=lmmx7aWkTFk]
+azurerm_network_security_group.my_terraform_nsg: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup]
+azurerm_public_ip.my_terraform_public_ip: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/publicIPAddresses/myPublicIP]
+azurerm_storage_account.my_storage_account: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Storage/storageAccounts/diag9669b1eda5a44c59]
+azurerm_subnet.my_terraform_subnet: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet]
+azurerm_network_interface.my_terraform_nic: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC]
+azurerm_network_interface_security_group_association.example: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC|/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup]
+azurerm_linux_virtual_machine.my_terraform_vm: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Compute/virtualMachines/myVM]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are
+indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # azurerm_linux_virtual_machine.my_terraform_vm will be destroyed
+  - resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
+      - admin_username                  = "azureuser" -> null
+      - allow_extension_operations      = true -> null
+      - computer_name                   = "myvm" -> null
+      - disable_password_authentication = true -> null
+      - encryption_at_host_enabled      = false -> null
+      - extensions_time_budget          = "PT1H30M" -> null
+      - id                              = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Compute/virtualMachines/myVM" -> null
+      - location                        = "westeurope" -> null
+      - max_bid_price                   = -1 -> null
+      - name                            = "myVM" -> null
+      - network_interface_ids           = [
+          - "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC",
+        ] -> null
+      - patch_assessment_mode           = "ImageDefault" -> null
+      - patch_mode                      = "ImageDefault" -> null
+      - platform_fault_domain           = -1 -> null
+      - priority                        = "Regular" -> null
+      - private_ip_address              = "10.0.1.4" -> null
+      - private_ip_addresses            = [
+          - "10.0.1.4",
+        ] -> null
+      - provision_vm_agent              = true -> null
+      - public_ip_address               = "20.16.124.126" -> null
+      - public_ip_addresses             = [
+          - "20.16.124.126",
+        ] -> null
+      - resource_group_name             = "rg-charming-dory" -> null
+      - secure_boot_enabled             = false -> null
+      - size                            = "Standard_DS1_v2" -> null
+      - tags                            = {} -> null
+      - virtual_machine_id              = "78076621-7ccf-4863-84c0-b195dd8bb139" -> null
+      - vtpm_enabled                    = false -> null
+
+      - admin_ssh_key {
+          - public_key = <<-EOT
+                ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDkWe1KDBqNj7WA9T9DdJwuU+LCSv+erzQulP8tAz11B1gGY1R+DDSbDdt7GqzRXbIM28j7J4E1S/x1aEvJ7DFsX6/nlTfCdvdGXGj0WBDrayEuxmmdLDCNIm1sHmKOZ36U0ojsIUqZgIOENLXWf8chVEO8VYnyJyGop9mKsjPsh7U6kPYdSmtLsYGRewGvIRCh3cRxSuMjqSAnA74Vdeh6OVTaWMMi7ogRNinQ5wfygDdt6hOghPVUacGr6/2dH4DxFePfXMf449p5Epx3XonuB0vz4o2FRjT7i2jyvnCilP1+XlAOGvpoC5z8EMOU5eTQv9lAJQM92mG2x2W7SoKQL12UAS/YgSQmOmRQxGyoKZHxuIFnht11OWESGmkSKdfaUZEGpoD0OO2nPj6dBhNp7JXAT3t4t0NlOZ57opL7euSc0L+f2oeYaDjRTj3fUntLYvWUCvf87vqadSH+px/9sC5wbnUJDctaW2d1atOT0QMWSGXveZct89S3cwWVlsGJYQMv2aY35ZN9OlPaKV+sTEEd4CE/nyaqpgiF61B42UjxgBSe02P6PNZGW9IL4mVfzh2jucvkcNKM0rcmyjySAeIqE6icGU8JzO+i96ZmoO4lFGUAG4vm4zIzch/tMtwW3GO5W8o5i6NU6mN5cVfjNqxWG4AKSTnBzyNv8rP/IQ==
+            EOT -> null
+          - username   = "azureuser" -> null
+        }
+
+      - boot_diagnostics {
+          - storage_account_uri = "https://diag9669b1eda5a44c59.blob.core.windows.net/" -> null
+        }
+
+      - os_disk {
+          - caching                   = "ReadWrite" -> null
+          - disk_size_gb              = 30 -> null
+          - name                      = "myOsDisk" -> null
+          - storage_account_type      = "Premium_LRS" -> null
+          - write_accelerator_enabled = false -> null
+        }
+
+      - source_image_reference {
+          - offer     = "UbuntuServer" -> null
+          - publisher = "Canonical" -> null
+          - sku       = "18.04-LTS" -> null
+          - version   = "latest" -> null
+        }
+    }
+
+  # azurerm_network_interface.my_terraform_nic will be destroyed
+  - resource "azurerm_network_interface" "my_terraform_nic" {
+      - applied_dns_servers           = [] -> null
+      - dns_servers                   = [] -> null
+      - enable_accelerated_networking = false -> null
+      - enable_ip_forwarding          = false -> null
+      - id                            = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC" -> null
+      - internal_domain_name_suffix   = "b52t5qfxnueubckmne5lmafhee.ax.internal.cloudapp.net" -> null
+      - location                      = "westeurope" -> null
+      - mac_address                   = "60-45-BD-9C-43-59" -> null
+      - name                          = "myNIC" -> null
+      - private_ip_address            = "10.0.1.4" -> null
+      - private_ip_addresses          = [
+          - "10.0.1.4",
+        ] -> null
+      - resource_group_name           = "rg-charming-dory" -> null
+      - tags                          = {} -> null
+      - virtual_machine_id            = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Compute/virtualMachines/myVM" -> null
+
+      - ip_configuration {
+          - name                          = "my_nic_configuration" -> null
+          - primary                       = true -> null
+          - private_ip_address            = "10.0.1.4" -> null
+          - private_ip_address_allocation = "Dynamic" -> null
+          - private_ip_address_version    = "IPv4" -> null
+          - public_ip_address_id          = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/publicIPAddresses/myPublicIP" -> null
+          - subnet_id                     = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" -> null
+        }
+    }
+
+  # azurerm_network_interface_security_group_association.example will be destroyed
+  - resource "azurerm_network_interface_security_group_association" "example" {
+      - id                        = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC|/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup" -> null
+      - network_interface_id      = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC" -> null
+      - network_security_group_id = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup" -> null
+    }
+
+  # azurerm_network_security_group.my_terraform_nsg will be destroyed
+  - resource "azurerm_network_security_group" "my_terraform_nsg" {
+      - id                  = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup" -> null
+      - location            = "westeurope" -> null
+      - name                = "myNetworkSecurityGroup" -> null
+      - resource_group_name = "rg-charming-dory" -> null
+      - security_rule       = [
+          - {
+              - access                                     = "Allow"
+              - description                                = ""
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "22"
+              - destination_port_ranges                    = []
+              - direction                                  = "Inbound"
+              - name                                       = "SSH"
+              - priority                                   = 1001
+              - protocol                                   = "Tcp"
+              - source_address_prefix                      = "*"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+            },
+        ] -> null
+      - tags                = {} -> null
+    }
+
+  # azurerm_public_ip.my_terraform_public_ip will be destroyed
+  - resource "azurerm_public_ip" "my_terraform_public_ip" {
+      - allocation_method       = "Dynamic" -> null
+      - ddos_protection_mode    = "VirtualNetworkInherited" -> null
+      - id                      = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/publicIPAddresses/myPublicIP" -> null
+      - idle_timeout_in_minutes = 4 -> null
+      - ip_address              = "20.16.124.126" -> null
+      - ip_tags                 = {} -> null
+      - ip_version              = "IPv4" -> null
+      - location                = "westeurope" -> null
+      - name                    = "myPublicIP" -> null
+      - resource_group_name     = "rg-charming-dory" -> null
+      - sku                     = "Basic" -> null
+      - sku_tier                = "Regional" -> null
+      - tags                    = {} -> null
+      - zones                   = [] -> null
+    }
+
+  # azurerm_resource_group.rg will be destroyed
+  - resource "azurerm_resource_group" "rg" {
+      - id       = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory" -> null
+      - location = "westeurope" -> null
+      - name     = "rg-charming-dory" -> null
+      - tags     = {} -> null
+    }
+
+  # azurerm_storage_account.my_storage_account will be destroyed
+  - resource "azurerm_storage_account" "my_storage_account" {
+      - access_tier                       = "Hot" -> null
+      - account_kind                      = "StorageV2" -> null
+      - account_replication_type          = "LRS" -> null
+      - account_tier                      = "Standard" -> null
+      - allow_nested_items_to_be_public   = true -> null
+      - cross_tenant_replication_enabled  = true -> null
+      - default_to_oauth_authentication   = false -> null
+      - enable_https_traffic_only         = true -> null
+      - id                                = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Storage/storageAccounts/diag9669b1eda5a44c59" -> null
+      - infrastructure_encryption_enabled = false -> null
+      - is_hns_enabled                    = false -> null
+      - location                          = "westeurope" -> null
+      - min_tls_version                   = "TLS1_2" -> null
+      - name                              = "diag9669b1eda5a44c59" -> null
+      - nfsv3_enabled                     = false -> null
+      - primary_access_key                = (sensitive value)
+      - primary_blob_connection_string    = (sensitive value)
+      - primary_blob_endpoint             = "https://diag9669b1eda5a44c59.blob.core.windows.net/" -> null
+      - primary_blob_host                 = "diag9669b1eda5a44c59.blob.core.windows.net" -> null
+      - primary_connection_string         = (sensitive value)
+      - primary_dfs_endpoint              = "https://diag9669b1eda5a44c59.dfs.core.windows.net/" -> null
+      - primary_dfs_host                  = "diag9669b1eda5a44c59.dfs.core.windows.net" -> null
+      - primary_file_endpoint             = "https://diag9669b1eda5a44c59.file.core.windows.net/" -> null
+      - primary_file_host                 = "diag9669b1eda5a44c59.file.core.windows.net" -> null
+      - primary_location                  = "westeurope" -> null
+      - primary_queue_endpoint            = "https://diag9669b1eda5a44c59.queue.core.windows.net/" -> null
+      - primary_queue_host                = "diag9669b1eda5a44c59.queue.core.windows.net" -> null
+      - primary_table_endpoint            = "https://diag9669b1eda5a44c59.table.core.windows.net/" -> null
+      - primary_table_host                = "diag9669b1eda5a44c59.table.core.windows.net" -> null
+      - primary_web_endpoint              = "https://diag9669b1eda5a44c59.z6.web.core.windows.net/" -> null
+      - primary_web_host                  = "diag9669b1eda5a44c59.z6.web.core.windows.net" -> null
+      - public_network_access_enabled     = true -> null
+      - queue_encryption_key_type         = "Service" -> null
+      - resource_group_name               = "rg-charming-dory" -> null
+      - secondary_access_key              = (sensitive value)
+      - secondary_connection_string       = (sensitive value)
+      - sftp_enabled                      = false -> null
+      - shared_access_key_enabled         = true -> null
+      - table_encryption_key_type         = "Service" -> null
+      - tags                              = {} -> null
+
+      - blob_properties {
+          - change_feed_enabled           = false -> null
+          - change_feed_retention_in_days = 0 -> null
+          - last_access_time_enabled      = false -> null
+          - versioning_enabled            = false -> null
+        }
+
+      - network_rules {
+          - bypass                     = [
+              - "AzureServices",
+            ] -> null
+          - default_action             = "Allow" -> null
+          - ip_rules                   = [] -> null
+          - virtual_network_subnet_ids = [] -> null
+        }
+
+      - queue_properties {
+
+          - hour_metrics {
+              - enabled               = true -> null
+              - include_apis          = true -> null
+              - retention_policy_days = 7 -> null
+              - version               = "1.0" -> null
+            }
+
+          - logging {
+              - delete                = false -> null
+              - read                  = false -> null
+              - retention_policy_days = 0 -> null
+              - version               = "1.0" -> null
+              - write                 = false -> null
+            }
+
+          - minute_metrics {
+              - enabled               = false -> null
+              - include_apis          = false -> null
+              - retention_policy_days = 0 -> null
+              - version               = "1.0" -> null
+            }
+        }
+
+      - share_properties {
+
+          - retention_policy {
+              - days = 7 -> null
+            }
+        }
+    }
+
+  # azurerm_subnet.my_terraform_subnet will be destroyed
+  - resource "azurerm_subnet" "my_terraform_subnet" {
+      - address_prefixes                               = [
+          - "10.0.1.0/24",
+        ] -> null
+      - enforce_private_link_endpoint_network_policies = false -> null
+      - enforce_private_link_service_network_policies  = false -> null
+      - id                                             = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" -> null
+      - name                                           = "mySubnet" -> null
+      - private_endpoint_network_policies_enabled      = true -> null
+      - private_link_service_network_policies_enabled  = true -> null
+      - resource_group_name                            = "rg-charming-dory" -> null
+      - service_endpoint_policy_ids                    = [] -> null
+      - service_endpoints                              = [] -> null
+      - virtual_network_name                           = "myVnet" -> null
+    }
+
+  # azurerm_virtual_network.my_terraform_network will be destroyed
+  - resource "azurerm_virtual_network" "my_terraform_network" {
+      - address_space           = [
+          - "10.0.0.0/16",
+        ] -> null
+      - dns_servers             = [] -> null
+      - flow_timeout_in_minutes = 0 -> null
+      - guid                    = "c03ff90f-6db7-4009-894c-693eb600a724" -> null
+      - id                      = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet" -> null
+      - location                = "westeurope" -> null
+      - name                    = "myVnet" -> null
+      - resource_group_name     = "rg-charming-dory" -> null
+      - subnet                  = [
+          - {
+              - address_prefix = "10.0.1.0/24"
+              - id             = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+              - name           = "mySubnet"
+              - security_group = ""
+            },
+        ] -> null
+      - tags                    = {} -> null
+    }
+
+  # random_id.random_id will be destroyed
+  - resource "random_id" "random_id" {
+      - b64_std     = "lmmx7aWkTFk=" -> null
+      - b64_url     = "lmmx7aWkTFk" -> null
+      - byte_length = 8 -> null
+      - dec         = "10838389612488182873" -> null
+      - hex         = "9669b1eda5a44c59" -> null
+      - id          = "lmmx7aWkTFk" -> null
+      - keepers     = {
+          - "resource_group" = "rg-charming-dory"
+        } -> null
+    }
+
+  # random_pet.rg_name will be destroyed
+  - resource "random_pet" "rg_name" {
+      - id        = "rg-charming-dory" -> null
+      - length    = 2 -> null
+      - prefix    = "rg" -> null
+      - separator = "-" -> null
+    }
+
+  # tls_private_key.example_ssh will be destroyed
+  - resource "tls_private_key" "example_ssh" {
+      - algorithm                     = "RSA" -> null
+      - ecdsa_curve                   = "P224" -> null
+      - id                            = "e55e8ffbf6a73d24ef109c25f04d93f3bd4fddb5" -> null
+      - private_key_openssh           = (sensitive value)
+      - private_key_pem               = (sensitive value)
+      - private_key_pem_pkcs8         = (sensitive value)
+      - public_key_fingerprint_md5    = "5d:29:96:21:c7:de:b9:cc:a6:97:9b:06:2b:5e:50:dd" -> null
+      - public_key_fingerprint_sha256 = "SHA256:t1zOIcZ5XpTKZA7C0Zzkp0UgUEkSJxmMwxNFVB6nbd4" -> null
+      - public_key_openssh            = <<-EOT
+            ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDkWe1KDBqNj7WA9T9DdJwuU+LCSv+erzQulP8tAz11B1gGY1R+DDSbDdt7GqzRXbIM28j7J4E1S/x1aEvJ7DFsX6/nlTfCdvdGXGj0WBDrayEuxmmdLDCNIm1sHmKOZ36U0ojsIUqZgIOENLXWf8chVEO8VYnyJyGop9mKsjPsh7U6kPYdSmtLsYGRewGvIRCh3cRxSuMjqSAnA74Vdeh6OVTaWMMi7ogRNinQ5wfygDdt6hOghPVUacGr6/2dH4DxFePfXMf449p5Epx3XonuB0vz4o2FRjT7i2jyvnCilP1+XlAOGvpoC5z8EMOU5eTQv9lAJQM92mG2x2W7SoKQL12UAS/YgSQmOmRQxGyoKZHxuIFnht11OWESGmkSKdfaUZEGpoD0OO2nPj6dBhNp7JXAT3t4t0NlOZ57opL7euSc0L+f2oeYaDjRTj3fUntLYvWUCvf87vqadSH+px/9sC5wbnUJDctaW2d1atOT0QMWSGXveZct89S3cwWVlsGJYQMv2aY35ZN9OlPaKV+sTEEd4CE/nyaqpgiF61B42UjxgBSe02P6PNZGW9IL4mVfzh2jucvkcNKM0rcmyjySAeIqE6icGU8JzO+i96ZmoO4lFGUAG4vm4zIzch/tMtwW3GO5W8o5i6NU6mN5cVfjNqxWG4AKSTnBzyNv8rP/IQ==
+        EOT -> null
+      - public_key_pem                = <<-EOT
+            -----BEGIN PUBLIC KEY-----
+            MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5FntSgwajY+1gPU/Q3Sc
+            LlPiwkr/nq80LpT/LQM9dQdYBmNUfgw0mw3bexqs0V2yDNvI+yeBNUv8dWhLyewx
+            bF+v55U3wnb3Rlxo9FgQ62shLsZpnSwwjSJtbB5ijmd+lNKI7CFKmYCDhDS11n/H
+            IVRDvFWJ8ichqKfZirIz7Ie1OpD2HUprS7GBkXsBryEQod3EcUrjI6kgJwO+FXXo
+            ejlU2ljDIu6IETYp0OcH8oA3beoToIT1VGnBq+v9nR+A8RXj31zH+OPaeRKcd16J
+            7gdL8+KNhUY0+4to8r5wopT9fl5QDhr6aAuc/BDDlOXk0L/ZQCUDPdphtsdlu0qC
+            kC9dlAEv2IEkJjpkUMRsqCmR8biBZ4bddTlhEhppEinX2lGRBqaA9Djtpz4+nQYT
+            aeyVwE97eLdDZTmee6KS+3rknNC/n9qHmGg40U4931J7S2L1lAr3/O76mnUh/qcf
+            /bAucG51CQ3LWltndWrTk9EDFkhl73mXLfPUt3MFlZbBiWEDL9mmN+WTfTpT2ilf
+            rExBHeAhP58mqqYIhetQeNlI8YAUntNj+jzWRlvSC+JlX84do7nL5HDSjNK3Jso8
+            kgHiKhOonBlPCczvovemZqDuJRRlABuL5uMyM3If7TLcFtxjuVvKOYujVOpjeXFX
+            4zasVhuACkk5wc8jb/Kz/yECAwEAAQ==
+            -----END PUBLIC KEY-----
+        EOT -> null
+      - rsa_bits                      = 4096 -> null
+    }
+
+Plan: 0 to add, 0 to change, 12 to destroy.
+
+Changes to Outputs:
+  - public_ip_address   = "20.16.124.126" -> null
+  - resource_group_name = "rg-charming-dory" -> null
+  - tls_private_key     = (sensitive value)
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+azurerm_network_interface_security_group_association.example: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC|/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup]
+azurerm_linux_virtual_machine.my_terraform_vm: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Compute/virtualMachines/myVM]
+azurerm_network_interface_security_group_association.example: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...kSecurityGroups/myNetworkSecurityGroup, 10s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...Microsoft.Compute/virtualMachines/myVM, 10s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...Microsoft.Compute/virtualMachines/myVM, 20s elapsed]
+azurerm_network_interface_security_group_association.example: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...kSecurityGroups/myNetworkSecurityGroup, 20s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...Microsoft.Compute/virtualMachines/myVM, 30s elapsed]
+azurerm_network_interface_security_group_association.example: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...kSecurityGroups/myNetworkSecurityGroup, 30s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...Microsoft.Compute/virtualMachines/myVM, 40s elapsed]
+azurerm_network_interface_security_group_association.example: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...kSecurityGroups/myNetworkSecurityGroup, 40s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...Microsoft.Compute/virtualMachines/myVM, 50s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...Microsoft.Compute/virtualMachines/myVM, 1m0s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...Microsoft.Compute/virtualMachines/myVM, 1m10s elapsed]
+azurerm_linux_virtual_machine.my_terraform_vm: Destruction complete after 1m18s
+azurerm_storage_account.my_storage_account: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Storage/storageAccounts/diag9669b1eda5a44c59]
+tls_private_key.example_ssh: Destroying... [id=e55e8ffbf6a73d24ef109c25f04d93f3bd4fddb5]
+tls_private_key.example_ssh: Destruction complete after 0s
+azurerm_storage_account.my_storage_account: Destruction complete after 4s
+random_id.random_id: Destroying... [id=lmmx7aWkTFk]
+random_id.random_id: Destruction complete after 0s
+╷
+│ Error: waiting for update of Network Interface: (Name "myNIC" / Resource Group "rg-charming-dory"): Code="InternalServerError" Message="An error occurred." Details=[]
+│
+│
+╵
+rik@ubuntu-wsl:~/terra_learn/azure/linux-vm-learn-terraform$
