@@ -1,0 +1,176 @@
+rik@ubuntu-wsl:~/terra_learn/azure/linux-vm-learn-terraform$ terraform destroy
+random_pet.rg_name: Refreshing state... [id=rg-charming-dory]
+azurerm_resource_group.rg: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory]
+azurerm_virtual_network.my_terraform_network: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet]
+azurerm_network_security_group.my_terraform_nsg: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup]
+azurerm_public_ip.my_terraform_public_ip: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/publicIPAddresses/myPublicIP]
+azurerm_subnet.my_terraform_subnet: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet]
+azurerm_network_interface.my_terraform_nic: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC]
+azurerm_network_interface_security_group_association.example: Refreshing state... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC|/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # azurerm_network_interface.my_terraform_nic will be destroyed
+  - resource "azurerm_network_interface" "my_terraform_nic" {
+      - applied_dns_servers           = [] -> null
+      - dns_servers                   = [] -> null
+      - enable_accelerated_networking = false -> null
+      - enable_ip_forwarding          = false -> null
+      - id                            = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC" -> null
+      - location                      = "westeurope" -> null
+      - mac_address                   = "60-45-BD-9C-43-59" -> null
+      - name                          = "myNIC" -> null
+      - private_ip_address            = "10.0.1.4" -> null
+      - private_ip_addresses          = [
+          - "10.0.1.4",
+        ] -> null
+      - resource_group_name           = "rg-charming-dory" -> null
+      - tags                          = {} -> null
+
+      - ip_configuration {
+          - name                          = "my_nic_configuration" -> null
+          - primary                       = true -> null
+          - private_ip_address            = "10.0.1.4" -> null
+          - private_ip_address_allocation = "Dynamic" -> null
+          - private_ip_address_version    = "IPv4" -> null
+          - public_ip_address_id          = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/publicIPAddresses/myPublicIP" -> null
+          - subnet_id                     = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" -> null
+        }
+    }
+
+  # azurerm_network_security_group.my_terraform_nsg will be destroyed
+  - resource "azurerm_network_security_group" "my_terraform_nsg" {
+      - id                  = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup"
+ -> null
+      - location            = "westeurope" -> null
+      - name                = "myNetworkSecurityGroup" -> null
+      - resource_group_name = "rg-charming-dory" -> null
+      - security_rule       = [
+          - {
+              - access                                     = "Allow"
+              - description                                = ""
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "22"
+              - destination_port_ranges                    = []
+              - direction                                  = "Inbound"
+              - name                                       = "SSH"
+              - priority                                   = 1001
+              - protocol                                   = "Tcp"
+              - source_address_prefix                      = "*"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+            },
+        ] -> null
+      - tags                = {} -> null
+    }
+
+  # azurerm_public_ip.my_terraform_public_ip will be destroyed
+  - resource "azurerm_public_ip" "my_terraform_public_ip" {
+      - allocation_method       = "Dynamic" -> null
+      - ddos_protection_mode    = "VirtualNetworkInherited" -> null
+      - id                      = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/publicIPAddresses/myPublicIP" -> null
+      - idle_timeout_in_minutes = 4 -> null
+      - ip_tags                 = {} -> null
+      - ip_version              = "IPv4" -> null
+      - location                = "westeurope" -> null
+      - name                    = "myPublicIP" -> null
+      - resource_group_name     = "rg-charming-dory" -> null
+      - sku                     = "Basic" -> null
+      - sku_tier                = "Regional" -> null
+      - tags                    = {} -> null
+      - zones                   = [] -> null
+    }
+
+  # azurerm_resource_group.rg will be destroyed
+  - resource "azurerm_resource_group" "rg" {
+      - id       = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory" -> null
+      - location = "westeurope" -> null
+      - name     = "rg-charming-dory" -> null
+      - tags     = {} -> null
+    }
+
+  # azurerm_subnet.my_terraform_subnet will be destroyed
+  - resource "azurerm_subnet" "my_terraform_subnet" {
+      - address_prefixes                               = [
+          - "10.0.1.0/24",
+        ] -> null
+      - enforce_private_link_endpoint_network_policies = false -> null
+      - enforce_private_link_service_network_policies  = false -> null
+      - id                                             = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" -> null
+      - name                                           = "mySubnet" -> null
+      - private_endpoint_network_policies_enabled      = true -> null
+      - private_link_service_network_policies_enabled  = true -> null
+      - resource_group_name                            = "rg-charming-dory" -> null
+      - service_endpoint_policy_ids                    = [] -> null
+      - service_endpoints                              = [] -> null
+      - virtual_network_name                           = "myVnet" -> null
+    }
+
+  # azurerm_virtual_network.my_terraform_network will be destroyed
+  - resource "azurerm_virtual_network" "my_terraform_network" {
+      - address_space           = [
+          - "10.0.0.0/16",
+        ] -> null
+      - dns_servers             = [] -> null
+      - flow_timeout_in_minutes = 0 -> null
+      - guid                    = "c03ff90f-6db7-4009-894c-693eb600a724" -> null
+      - id                      = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet" -> null
+      - location                = "westeurope" -> null
+      - name                    = "myVnet" -> null
+      - resource_group_name     = "rg-charming-dory" -> null
+      - subnet                  = [
+          - {
+              - address_prefix = "10.0.1.0/24"
+              - id             = "/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+              - name           = "mySubnet"
+              - security_group = ""
+            },
+        ] -> null
+      - tags                    = {} -> null
+    }
+
+  # random_pet.rg_name will be destroyed
+  - resource "random_pet" "rg_name" {
+      - id        = "rg-charming-dory" -> null
+      - length    = 2 -> null
+      - prefix    = "rg" -> null
+      - separator = "-" -> null
+    }
+
+Plan: 0 to add, 0 to change, 7 to destroy.
+
+Changes to Outputs:
+  - resource_group_name = "rg-charming-dory" -> null
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+azurerm_network_interface.my_terraform_nic: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC]
+azurerm_network_security_group.my_terraform_nsg: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup]
+azurerm_network_interface.my_terraform_nic: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...rosoft.Network/networkInterfaces/myNIC, 10s elapsed]
+azurerm_network_interface.my_terraform_nic: Destruction complete after 17s
+azurerm_subnet.my_terraform_subnet: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet]
+azurerm_public_ip.my_terraform_public_ip: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/publicIPAddresses/myPublicIP]
+azurerm_subnet.my_terraform_subnet: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...irtualNetworks/myVnet/subnets/mySubnet, 10s elapsed]
+azurerm_public_ip.my_terraform_public_ip: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...t.Network/publicIPAddresses/myPublicIP, 10s elapsed]
+azurerm_public_ip.my_terraform_public_ip: Destruction complete after 11s
+azurerm_subnet.my_terraform_subnet: Destruction complete after 11s
+azurerm_virtual_network.my_terraform_network: Destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/virtualNetworks/myVnet]
+azurerm_virtual_network.my_terraform_network: Still destroying... [id=/subscriptions/0b19a6e4-c84e-4f7c-88ac-...crosoft.Network/virtualNetworks/myVnet, 10s elapsed]
+azurerm_virtual_network.my_terraform_network: Destruction complete after 11s
+╷
+│ Error: deleting Network Security Group "myNetworkSecurityGroup" (Resource Group "rg-charming-dory"): network.SecurityGroupsClient#Delete: Failure sending request: StatusCode=400 -- Original Error: Code="NetworkSecurityGroupOldReferencesNotCleanedUp" Message="Network security group myNetworkSecurityGroup cannot be deleted because old references for the following Nics: (\n/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup:/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkInterfaces/myNIC) and Subnet: (\n/subscriptions/0b19a6e4-c84e-4f7c-88ac-21f4496e80f5/resourceGroups/rg-charming-dory/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup:) have not been released yet." Details=[]
+│
+│
+╵
+rik@ubuntu-wsl:~/terra_learn/azure/linux-vm-learn-terraform$
